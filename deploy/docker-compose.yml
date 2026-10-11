@@ -1,0 +1,40 @@
+# Run the API on ANY Linux VM (free-tier or student-credit VMs work fine).
+#   cp ../.env.example .env   (in this folder; fill in GEMINI_API_KEY etc.)  and set DOMAIN=api.yourdomain.com in it
+#   docker compose up -d --build
+# Caddy obtains and renews the HTTPS certificate for $DOMAIN by itself (ports 80 and 443 must be open).
+services:
+  api:
+    build: ..
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      AGENTIC_DATA_DIR: /data
+      PORT: "8000"
+    volumes:
+      - agentic_data:/data
+    expose:
+      - "8000"          # internal only: the public entry point is Caddy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/health',timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  agentic_data:
+  caddy_data:
+  caddy_config:

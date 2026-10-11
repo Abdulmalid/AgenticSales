@@ -1,0 +1,17 @@
+{$DOMAIN} {
+	encode gzip
+	# model replies can take a while; do not cut them off early
+	reverse_proxy api:8000 {
+		transport http {
+			response_header_timeout 120s
+		}
+	}
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains"
+		X-Content-Type-Options nosniff
+		-Server
+	}
+	request_body {
+		max_size 2MB
+	}
+}

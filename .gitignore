@@ -14,3 +14,4 @@ web/e2e-out/
 
 # raw corpora are shared outside git (see data/corpora/README.md)
 data/corpora/raw/
+deploy/.env

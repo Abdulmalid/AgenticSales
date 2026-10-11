@@ -27,6 +27,29 @@ Create your first business and API key on the host (the key is printed once):
 python -m agentic_sales.cli tenant-create --id my-shop --config examples/demo_business.json
 ```
 
+### Cheapest options (no budget yet)
+
+The API needs a **persistent disk** (each business's data is SQLite on disk) and must answer webhooks reliably. That rules out most "free web service" tiers, which sleep when idle and wipe their disk on restart (Render/Koyeb/Hugging Face free tiers). Real options, cheapest first. Plans and free tiers change, so check each one's current terms before relying on it:
+
+| Option | Cost | Trade-offs |
+|---|---|---|
+| **Student credits** (GitHub Student Developer Pack: DigitalOcean credit; Azure for Students credit) for a small VM | free while credits last (a $4-6/month VM is roughly a year or more) | needs student verification; you manage the VM |
+| **Oracle Cloud "Always Free" VM** | free | card verification is picky; capacity varies by region; you manage the VM |
+| **Google Cloud e2-micro free tier** | free (US regions) | needs a billing card; only 1 GB RAM |
+| **Your own always-on PC + ngrok free static domain** | free | for demos/pilots only: it is down when the PC is off or the internet drops |
+| Fly.io (below) | a few US dollars/month | easiest, but not free |
+
+Any VM works the same way (1 GB RAM minimum, 2 GB comfortable; ports 80 and 443 open; a domain name pointing at it, a free `duckdns.org` subdomain is enough). `deploy/` holds a tested Docker Compose stack (the API plus Caddy, which gets and renews the HTTPS certificate by itself; the API container exposes no port directly):
+
+```
+curl -fsSL https://get.docker.com | sh                    # on the VM
+git clone https://github.com/Abdulmalid/AgenticSales && cd AgenticSales/deploy
+cp .env.example .env                                      # set DOMAIN, GEMINI_API_KEY
+docker compose up -d --build
+docker compose exec -u app api python -m agentic_sales.cli tenant-create --id my-shop --config examples/demo_business.json
+```
+Use `-u app` when touching `/data` (see the ownership note below). Back up the `agentic_data` Docker volume. Then set the console's `BACKEND_URL` / `BACKEND_PUBLIC_URL` on Vercel to `https://<your domain>` and redeploy.
+
 ### Fly.io (what `fly.toml` is set up for)
 
 The image was built and run locally with an empty data volume: health check, non-root user, tenant creation, an authenticated chat turn against the real model, persistence across a restart, and the full test suite on the container's Python 3.12 all passed. It has **not** been run on Fly itself.
