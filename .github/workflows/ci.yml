@@ -1,0 +1,85 @@
+name: CI and deploy
+
+# Every push and pull request runs the tests. Pushes to main also deploy the console to Vercel, using the
+# repository owner's VERCEL_TOKEN secret, so teammates' pushes deploy fine without Vercel team seats.
+# The deploy step is skipped (not failed) until the VERCEL_TOKEN secret exists.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend tests (Python)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install fastapi uvicorn httpx
+      - name: Run the offline test suite
+        # tests that need the 600 MB research corpora skip themselves when the corpora are absent
+        run: python -X utf8 -W ignore -m unittest discover -s tests
+
+  web:
+    name: Console tests, typecheck and build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    env:
+      SESSION_SECRET: ci-only-secret-not-used-for-anything-real-0123456789
+      BACKEND_URL: http://127.0.0.1:8000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npx tsc --noEmit
+      - run: npx next build
+
+  deploy-console:
+    name: Deploy console to Vercel
+    needs: [backend, web]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_7gbjAMRK8QWhzLiVC0MtK26a
+      VERCEL_PROJECT_ID: prj_UM0KTdHxISqQMu5kFdlnyk9BEIz7
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - name: Check that a Vercel token is configured
+        id: gate
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "VERCEL_TOKEN secret not set: skipping deploy."
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true'
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.go == 'true'
+        with:
+          node-version: 24
+      - name: Deploy (project Root Directory is set to web in Vercel)
+        if: steps.gate.outputs.go == 'true'
+        run: |
+          npm install --global vercel@latest
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+          vercel build --prod --token="$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
