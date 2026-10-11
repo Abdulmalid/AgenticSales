@@ -27,6 +27,24 @@ Create your first business and API key on the host (the key is printed once):
 python -m agentic_sales.cli tenant-create --id my-shop --config examples/demo_business.json
 ```
 
+### Fly.io (what `fly.toml` is set up for)
+
+The image was built and run locally with an empty data volume: health check, non-root user, tenant creation, an authenticated chat turn against the real model, persistence across a restart, and the full test suite on the container's Python 3.12 all passed. It has **not** been run on Fly itself.
+
+```
+fly auth login                                              # opens a browser; Fly asks for a card even for small apps
+fly launch --no-deploy --copy-config --name agenticsales-api --region lhr
+fly volumes create agentic_data --size 3 --region lhr       # one volume = one machine; do not scale out (SQLite)
+fly secrets set GEMINI_API_KEY=...  MODEL_PROVIDER=gemini   # add ANTHROPIC_API_KEY / ANTHROPIC_WORKSPACE_ID if using Claude
+fly deploy
+fly ssh console -C "python -m agentic_sales.cli tenant-create --id my-shop --config examples/demo_business.json"   # prints the admin key once
+```
+Then point the console at it: set `BACKEND_URL` and `BACKEND_PUBLIC_URL` on Vercel to `https://agenticsales-api.fly.dev` and redeploy.
+
+Without the research corpora the agent still works (all price, payment and safety rules are code), but it loses the Nigerian-language and guardrail retrieval. To add them later: `fly ssh sftp shell`, upload the `.jsonl` files into `/data/corpora/raw/`, then `fly ssh console -C "python -m agentic_sales.corpus.build"` (about 3 minutes, needs ~1.5 GB of the volume).
+
+Costs (check Fly's current pricing): one `shared-cpu-1x` 512 MB machine kept running, plus a 3 GB volume; roughly a few US dollars a month. Model usage is billed separately by Google/Anthropic.
+
 ## 2. Deploy the console to Vercel
 
 You sign in; I never need your password or token in chat.

@@ -13,7 +13,8 @@ class Cli(unittest.TestCase):
     """The CLI is how a business gets its first API key, so it must actually run end to end."""
 
     def run_cli(self, cwd: Path, *args: str) -> subprocess.CompletedProcess:
-        env = {**os.environ, "PYTHONPATH": str(REPO), "PYTHONUTF8": "1"}
+        # pin the data directory so the test behaves the same locally and in a container that sets AGENTIC_DATA_DIR
+        env = {**os.environ, "PYTHONPATH": str(REPO), "PYTHONUTF8": "1", "AGENTIC_DATA_DIR": str(cwd / "data")}
         env.pop("GEMINI_API_KEY", None)
         env.pop("ANTHROPIC_API_KEY", None)
         return subprocess.run([sys.executable, "-m", "agentic_sales.cli", *args], cwd=cwd, env=env,

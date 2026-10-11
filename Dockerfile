@@ -22,4 +22,6 @@ EXPOSE 8000
 
 HEALTHCHECK --interval=30s --timeout=5s CMD python -c "import urllib.request,os;urllib.request.urlopen('http://127.0.0.1:%s/health' % os.environ.get('PORT','8000'),timeout=4)"
 
-CMD ["sh", "-c", "uvicorn agentic_sales.server.app:_default_app --factory --host 0.0.0.0 --port ${PORT} --proxy-headers"]
+# --forwarded-allow-ips='*' is safe here because only the platform's proxy can reach this port; it makes
+# request.client.host the real caller, which the per-IP rate limits depend on.
+CMD ["sh", "-c", "uvicorn agentic_sales.server.app:_default_app --factory --host 0.0.0.0 --port ${PORT} --proxy-headers --forwarded-allow-ips='*'"]
