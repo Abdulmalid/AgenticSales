@@ -37,8 +37,10 @@ fly launch --no-deploy --copy-config --name agenticsales-api --region lhr
 fly volumes create agentic_data --size 3 --region lhr       # one volume = one machine; do not scale out (SQLite)
 fly secrets set GEMINI_API_KEY=...  MODEL_PROVIDER=gemini   # add ANTHROPIC_API_KEY / ANTHROPIC_WORKSPACE_ID if using Claude
 fly deploy
-fly ssh console -C "python -m agentic_sales.cli tenant-create --id my-shop --config examples/demo_business.json"   # prints the admin key once
+fly ssh console --user app -C "python -m agentic_sales.cli tenant-create --id my-shop --config examples/demo_business.json"   # prints the admin key once
 ```
+**Always pass `--user app`** to `fly ssh console` when creating businesses or touching `/data`. Without it you are root, the files you create are root-owned, and the API (which runs as the restricted `app` user) fails with `unable to open database file`. If that happens, fix it with `fly ssh console -C "chown -R app:app /data"`. (We hit this on the first hosted deploy.)
+
 Then point the console at it: set `BACKEND_URL` and `BACKEND_PUBLIC_URL` on Vercel to `https://agenticsales-api.fly.dev` and redeploy.
 
 Without the research corpora the agent still works (all price, payment and safety rules are code), but it loses the Nigerian-language and guardrail retrieval. To add them later: `fly ssh sftp shell`, upload the `.jsonl` files into `/data/corpora/raw/`, then `fly ssh console -C "python -m agentic_sales.corpus.build"` (about 3 minutes, needs ~1.5 GB of the volume).
