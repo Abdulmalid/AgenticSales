@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+# derived artifacts: rebuild with `python -m agentic_sales.corpus.build`
+data/index/
+data/tenants/
+.env
+data/eval/_llm_cache/
+data/*.db
+data/_probe.*
+.venv/
+scripts/__pycache__/
+web/e2e-out/
+
+# raw corpora are shared outside git (see data/corpora/README.md)
+data/corpora/raw/

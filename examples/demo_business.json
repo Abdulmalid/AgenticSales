@@ -1,0 +1,14 @@
+{
+  "business_name": "PhoneHub Lagos",
+  "industry": "electronics retail",
+  "brand_voice": "confident, warm, straight to the point",
+  "target_audience": "Lagos and Abuja smartphone buyers, mostly 20-40",
+  "delivery_areas": ["Lagos", "Abuja", "Port Harcourt"],
+  "payment_methods": ["paystack"],
+  "refund_policy": "7-day replacement for factory defects; no cash refunds without manager approval",
+  "products": [
+    {"sku": "IP15", "name": "iPhone 15 128GB", "price_kobo": 80000000, "floor_price_kobo": 74000000,
+     "description": "Brand new, sealed, 1-year warranty", "in_stock": true}
+  ],
+  "approvals": {"max_discount_pct_auto": 3, "max_discount_pct_hard": 8}
+}

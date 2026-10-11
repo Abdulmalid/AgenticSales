@@ -1,0 +1,194 @@
+[
+ {
+  "message": "Oga, the money don enter, the goods no reach. Wetin you dey do? I need am sharp sharp.",
+  "register": "pidgin",
+  "signals": [
+   "delivery_concern",
+   "payment_claim",
+   "ready_to_buy",
+   "trust_concern"
+  ],
+  "urgency": "critical"
+ },
+ {
+  "message": "How much for the complete set? If I buy all today, any free delivery?",
+  "register": "casual",
+  "signals": [
+   "delivery_concern",
+   "negotiation",
+   "price_inquiry",
+   "ready_to_buy"
+  ],
+  "urgency": "medium"
+ },
+ {
+  "message": "I am placing the order for my office. 10 units. Please send bulk discount and total.",
+  "register": "formal",
+  "signals": [
+   "delivery_concern",
+   "negotiation",
+   "price_inquiry",
+   "ready_to_buy"
+  ],
+  "urgency": "medium"
+ },
+ {
+  "message": "I want am. Make I pay half now, you go deliver, then I pay balance. Na so we dey do am here.",
+  "register": "pidgin",
+  "signals": [
+   "delivery_concern",
+   "negotiation",
+   "ready_to_buy",
+   "stalling"
+  ],
+  "urgency": "medium"
+ },
+ {
+  "message": "Please send the account number, I will make the transfer this morning.",
+  "register": "formal",
+  "signals": [
+   "payment_claim",
+   "ready_to_buy"
+  ],
+  "urgency": "high"
+ },
+ {
+  "message": "Will pay when I receive. That is my final decision. No argument.",
+  "register": "casual",
+  "signals": [
+   "delivery_concern",
+   "ready_to_buy",
+   "stalling"
+  ],
+  "urgency": "low"
+ },
+ {
+  "message": "Hi! I love the dress. I want it in [color] size [size]. When can it get to me?",
+  "register": "social",
+  "signals": [
+   "delivery_concern",
+   "ready_to_buy"
+  ],
+  "urgency": "medium"
+ },
+ {
+  "message": "Please kindly confirm you can dispatch the order today. I will pay extra for same-day dispatch.",
+  "register": "formal",
+  "signals": [
+   "delivery_concern",
+   "negotiation",
+   "ready_to_buy"
+  ],
+  "urgency": "critical"
+ },
+ {
+  "message": "Please kindly share your business registration and CAC documents. I need to verify before any payment.",
+  "register": "formal",
+  "signals": [
+   "stalling",
+   "trust_concern"
+  ],
+  "urgency": "medium"
+ },
+ {
+  "message": "Wetin you dey wait for? I dey ready to pay since morning o.",
+  "register": "pidgin",
+  "signals": [
+   "ready_to_buy",
+   "stalling"
+  ],
+  "urgency": "high"
+ },
+ {
+  "message": "Quick one - I want to order 3 of the [item]. Total cost with delivery please.",
+  "register": "casual",
+  "signals": [
+   "delivery_concern",
+   "price_inquiry",
+   "ready_to_buy"
+  ],
+  "urgency": "medium"
+ },
+ {
+  "message": "Please kindly confirm the [item] is in stock. I will make the transfer once confirmed.",
+  "register": "formal",
+  "signals": [
+   "payment_claim",
+   "ready_to_buy"
+  ],
+  "urgency": "high"
+ },
+ {
+  "message": "Oga, why your price higher than the other person wey dey sell same thing?",
+  "register": "pidgin",
+  "signals": [
+   "negotiation",
+   "trust_concern"
+  ],
+  "urgency": "low"
+ },
+ {
+  "message": "Hi! Saw your TikTok video. Can I get the [item]? Also can you ship to [state]?",
+  "register": "social",
+  "signals": [
+   "delivery_concern",
+   "ready_to_buy"
+  ],
+  "urgency": "medium"
+ },
+ {
+  "message": "Boss, you no dey reply me since. Wetin happen? I dey ready to pay.",
+  "register": "pidgin",
+  "signals": [
+   "ready_to_buy",
+   "stalling"
+  ],
+  "urgency": "high"
+ },
+ {
+  "message": "I would like to place an order for [item] in [color]. Please confirm the total cost and I will pay.",
+  "register": "formal",
+  "signals": [
+   "delivery_concern",
+   "price_inquiry",
+   "ready_to_buy"
+  ],
+  "urgency": "medium"
+ },
+ {
+  "message": "You dey scam person? See the price wey you post vs wetin you dey charge now.",
+  "register": "pidgin",
+  "signals": [
+   "negotiation",
+   "trust_concern"
+  ],
+  "urgency": "low"
+ },
+ {
+  "message": "If I pay now, when you go deliver? Tomorrow?",
+  "register": "casual",
+  "signals": [
+   "delivery_concern",
+   "ready_to_buy"
+  ],
+  "urgency": "high"
+ },
+ {
+  "message": "Abeg give me small time. The money go enter before close of work today.",
+  "register": "pidgin",
+  "signals": [
+   "ready_to_buy",
+   "stalling"
+  ],
+  "urgency": "high"
+ },
+ {
+  "message": "Wetin be your cheapest? Na just small money I get.",
+  "register": "pidgin",
+  "signals": [
+   "negotiation",
+   "price_inquiry"
+  ],
+  "urgency": "low"
+ }
+]

@@ -1,0 +1,115 @@
+{"message": "How much dis one?", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "Wetin be di price?", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "How much last last?", "register": "pidgin", "signals": ["price_inquiry", "negotiation"]}
+{"message": "Last price how much?", "register": "pidgin", "signals": ["price_inquiry", "negotiation"]}
+{"message": "How much dis shoe?", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "Wetin be the cheapest you fit give?", "register": "pidgin", "signals": ["price_inquiry", "negotiation"]}
+{"message": "Abeg reduce small na, last price?", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Oga wetin you dey price no buy am at all at all.", "register": "pidgin", "signals": ["negotiation", "trust_concern"]}
+{"message": "Make I give you [amount]?", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Too costly.", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Dat one too much.", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "I no even reach how much we buy am.", "register": "pidgin", "signals": ["negotiation", "trust_concern"]}
+{"message": "I wan buy data for my phone, which plan dey?", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "Abeg send price for this thing.", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "I wan buy this one. How much?", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "Wetin you dey sell? Send the list abeg.", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "Wetin be your last price?", "register": "pidgin", "signals": ["price_inquiry", "negotiation"]}
+{"message": "No wahala, make we yarn price small.", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "I get small money o. Last price?", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "You go give me better price? Na regular customer I be.", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Since na you, last price?", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "I don transfer the [amount] naira to your PalmPay. Confirm when you see am.", "register": "pidgin", "signals": ["payment_claim"]}
+{"message": "Alert don enter your side abeg?", "register": "pidgin", "signals": ["payment_claim"]}
+{"message": "I pay am now now. Check your alert.", "register": "pidgin", "signals": ["payment_claim"]}
+{"message": "I go pay when I see the thing first. No vex.", "register": "pidgin", "signals": ["stalling"]}
+{"message": "I will pay on delivery o.", "register": "pidgin", "signals": ["stalling"]}
+{"message": "Send your account number first, I go pay before you send.", "register": "pidgin", "signals": ["trust_concern", "stalling"]}
+{"message": "You no dey fear? How I go know say you no go collect my money disappear?", "register": "pidgin", "signals": ["trust_concern"]}
+{"message": "Na scam you no be?", "register": "pidgin", "signals": ["trust_concern"]}
+{"message": "I don hear say una dey dup people.", "register": "pidgin", "signals": ["trust_concern"]}
+{"message": "My guy, that price no work for me at all.", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Abeg no too rush me, salary no enter.", "register": "pidgin", "signals": ["stalling"]}
+{"message": "I go pay small small. Trust me.", "register": "pidgin", "signals": ["stalling", "trust_concern"]}
+{"message": "You fit hold am for me? I go pay next week.", "register": "pidgin", "signals": ["stalling"]}
+{"message": "How you dey? Wetin dey happen?", "register": "pidgin", "signals": []}
+{"message": "My name na [Name]. I wan make we do business.", "register": "pidgin", "signals": []}
+{"message": "Broda, you still dey sell this one?", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "Hello good afternoon. Please I want to inquire about the price of the [product]. Thank you.", "register": "formal", "signals": ["price_inquiry"]}
+{"message": "Good morning sir/ma. I saw your ad on Instagram. Kindly send the price list and available sizes.", "register": "formal", "signals": ["price_inquiry"]}
+{"message": "Hello, I am interested in purchasing the [item]. Please let me know the total cost including delivery to [city].", "register": "formal", "signals": ["price_inquiry"]}
+{"message": "Dear vendor, kindly confirm the last price and whether you have it in stock. Regards.", "register": "formal", "signals": ["price_inquiry"]}
+{"message": "Hi, I would like to negotiate the price. The quoted amount is above my budget. Can you do [amount]?", "register": "formal", "signals": ["negotiation"]}
+{"message": "Please I need this item urgently. I am willing to pay upfront if you can ship today.", "register": "formal", "signals": []}
+{"message": "I have made the transfer of [amount] to your account. Please find attached the receipt. Kindly confirm.", "register": "formal", "signals": ["payment_claim"]}
+{"message": "Good day. I have been trying to reach you. The previous transaction is still pending on my end. Please advise.", "register": "formal", "signals": ["stalling", "trust_concern"]}
+{"message": "I am a bit hesitant as I have not purchased from you before. Can you share some customer references?", "register": "formal", "signals": ["trust_concern"]}
+{"message": "Please note that I will only release payment upon successful delivery. I hope this is acceptable.", "register": "formal", "signals": ["stalling", "trust_concern"]}
+{"message": "Hello, I will pay on delivery. Kindly let me know if this is okay with you.", "register": "formal", "signals": ["stalling"]}
+{"message": "Kindly send your business registration and CAC documents. I need to verify before any payment.", "register": "formal", "signals": ["trust_concern"]}
+{"message": "Thanks for your response. I will get back to you once I have confirmed with my partner.", "register": "formal", "signals": ["stalling"]}
+{"message": "Hi, please can I pay half now and balance on delivery?", "register": "casual", "signals": ["negotiation", "stalling"]}
+{"message": "Hey, is this still available? Last one I asked about.", "register": "casual", "signals": ["price_inquiry"]}
+{"message": "How far? The price you sent, can you do better?", "register": "casual", "signals": ["negotiation"]}
+{"message": "I just sent the money. Check your account.", "register": "casual", "signals": ["payment_claim"]}
+{"message": "No worries, I will pay when I receive. Thanks.", "register": "casual", "signals": ["stalling"]}
+{"message": "Hi! Hope you're doing well? I saw your page and I'd love to place an order.", "register": "social", "signals": []}
+{"message": "Hello! How is the business going? I have been meaning to order from you since last month.", "register": "social", "signals": []}
+{"message": "Good morning ma. God bless your hustle. I would like to ask about the [item].", "register": "social", "signals": ["price_inquiry"]}
+{"message": "Please I need this thing for my sister's wedding. Any discount since it's for occasion?", "register": "social", "signals": ["negotiation"]}
+{"message": "Hi, I saw you on [Instagram/TikTok]. Your page is lovely. Please I want to buy [item].", "register": "social", "signals": ["price_inquiry"]}
+{"message": "How you dey? See wetin I wan buy.", "register": "pidgin", "signals": []}
+{"message": "Wetin be the price for this one wey you post?", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "You get am for store? I wan come pick am today.", "register": "pidgin", "signals": []}
+{"message": "Customer, this shoe na seven thousand? Abeg try small, last price.", "register": "pidgin", "signals": ["negotiation", "trust_concern"]}
+{"message": "Oga, I wan make we yarn. How much you fit sell this one give me?", "register": "pidgin", "signals": ["price_inquiry", "negotiation"]}
+{"message": "I no get full money now. You fit break am for two?", "register": "pidgin", "signals": ["negotiation", "stalling"]}
+{"message": "When last you update your price? The one for your page don old.", "register": "casual", "signals": ["price_inquiry"]}
+{"message": "Hi, please I want to order 2 of this. How much total? And do you have it in [color]?", "register": "casual", "signals": ["price_inquiry"]}
+{"message": "I have paid the full amount. Please send the tracking details. Thanks.", "register": "formal", "signals": ["payment_claim"]}
+{"message": "Sorry I have not paid yet. Salary will enter by weekend. Can you hold it for me?", "register": "casual", "signals": ["stalling"]}
+{"message": "I am very interested but I have to ask my husband first. I will let you know tomorrow.", "register": "social", "signals": ["stalling"]}
+{"message": "Please, I will only pay into a verified business account. Send your company name and account.", "register": "formal", "signals": ["trust_concern"]}
+{"message": "Boss, the money wey I send don reach you? Abeg confirm quick quick.", "register": "pidgin", "signals": ["payment_claim"]}
+{"message": "Good afternoon. I am following up on the order I placed last week. Has it been shipped?", "register": "formal", "signals": []}
+{"message": "I saw someone post bad review about your store. I want to ask if it's true before I pay.", "register": "casual", "signals": ["trust_concern"]}
+{"message": "Hi dear, I want this one but I need to first see video. Can you send?", "register": "social", "signals": ["stalling"]}
+{"message": "Oga, I send the alert o. See am.", "register": "pidgin", "signals": ["payment_claim"]}
+{"message": "Wetin be the last price for 5 pieces?", "register": "pidgin", "signals": ["price_inquiry", "negotiation"]}
+{"message": "I want to order but your price too high. The other seller dey sell am for less.", "register": "casual", "signals": ["negotiation", "trust_concern"]}
+{"message": "Hello, I will pay when the salary enters next week. Please keep one for me.", "register": "formal", "signals": ["stalling"]}
+{"message": "Abeg no waste my time, last price?", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Just send your account number. I go pay now now.", "register": "pidgin", "signals": ["payment_claim"]}
+{"message": "I no wan scam you. Na legit buyer I be. See my old orders.", "register": "pidgin", "signals": ["trust_concern"]}
+{"message": "Hi! Thanks for replying fast. I want to ask, do you accept payment on delivery?", "register": "social", "signals": ["stalling"]}
+{"message": "I will send the money now. Please ship immediately you confirm. Thanks.", "register": "casual", "signals": ["payment_claim"]}
+{"message": "Oga, why your price higher than the other person wey dey sell same thing?", "register": "pidgin", "signals": ["negotiation", "trust_concern"]}
+{"message": "I am calling to ask about the price of the [item] advertised.", "register": "formal", "signals": ["price_inquiry"]}
+{"message": "Quick question: do you have other colors? And what's the best price you can give?", "register": "casual", "signals": ["price_inquiry", "negotiation"]}
+{"message": "Please I need this for tomorrow's event. If you can deliver today I will pay extra.", "register": "casual", "signals": []}
+{"message": "Wetin be di address wey I go come pick am?", "register": "pidgin", "signals": []}
+{"message": "Hope you are well? Just checking if my last payment went through. Please confirm.", "register": "social", "signals": ["payment_claim"]}
+{"message": "I have been scammed before, so I only pay on delivery or to a verified merchant.", "register": "formal", "signals": ["trust_concern", "stalling"]}
+{"message": "Quick one - is the price negotiable for bulk? I need 20 pieces.", "register": "casual", "signals": ["negotiation"]}
+{"message": "Oga please, last last price. If you no gree I go comot.", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Good evening. I have placed an order and made payment. Please confirm receipt and proceed with delivery.", "register": "formal", "signals": ["payment_claim"]}
+{"message": "I will pay 50% now and the rest when I receive. Abeg consider.", "register": "pidgin", "signals": ["negotiation", "stalling"]}
+{"message": "How is the market today? I hope business is moving?", "register": "social", "signals": []}
+{"message": "I am following up on the transfer I made yesterday. Has it reflected on your app?", "register": "formal", "signals": ["payment_claim", "stalling"]}
+{"message": "Customer, I have been buying this for [years] now. You go give me better price?", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Please kindly hold the item for me. I will make payment within 24 hours.", "register": "formal", "signals": ["stalling"]}
+{"message": "Wetin you talk? I no understand the price. Make you break am down.", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "I want to order but I need to first verify your business. Can you send your CAC number?", "register": "formal", "signals": ["trust_concern"]}
+{"message": "Boss, the money don enter your account. Why you no dey reply?", "register": "pidgin", "signals": ["payment_claim"]}
+{"message": "Hi dear, hope you had a good day? I want to place an order. Total how much?", "register": "social", "signals": ["price_inquiry"]}
+{"message": "Quick question before I pay: what is your return policy if it doesn't fit?", "register": "casual", "signals": ["trust_concern"]}
+{"message": "I will pay when I have the cash. No rush please. Just keep one for me.", "register": "casual", "signals": ["stalling"]}
+{"message": "Oga, I want to be your regular customer. Last price? I will keep coming back.", "register": "pidgin", "signals": ["negotiation"]}
+{"message": "Hello, I am interested in the bundle of 5. What is the total? Do you offer any discount?", "register": "formal", "signals": ["price_inquiry", "negotiation"]}
+{"message": "Wetin be the price for one? I no need 10, just one.", "register": "pidgin", "signals": ["price_inquiry"]}
+{"message": "Boss, you no dey reply me. I still dey wait o.", "register": "pidgin", "signals": ["stalling"]}
+{"message": "I have just made the payment of [amount] to the account you sent. Please confirm.", "register": "formal", "signals": ["payment_claim"]}
+{"message": "How you dey? I wan order something. You dey around?", "register": "pidgin", "signals": []}
+{"message": "Hi! I love what you posted. Could you send more pictures and the price please?", "register": "social", "signals": ["price_inquiry"]}
+{"message": "Just one question - is the price final? Because I cannot pay more than [amount].", "register": "casual", "signals": ["negotiation"]}
+{"message": "Customer, na me be the person wey message you yesterday. You remember?", "register": "pidgin", "signals": []}
