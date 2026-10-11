@@ -51,3 +51,11 @@ In the console: **Settings → Channels**. It shows the exact webhook URL for ea
 - Put a scheduler on the API host that calls `POST /v1/followups/run` and `POST /v1/outbox/flush` every few minutes (the console's Settings → Automation has buttons, but nothing runs on a timer yet).
 - Encrypt `secrets.json` at rest or move it to your host's secret manager.
 - The API's per-tenant lock and SQLite suit a pilot (tens of businesses), not scale.
+
+## Git-based deploys (Vercel)
+
+The console deploys from the private GitHub repo `Abdulmalid/AgenticSales` (the Vercel project's Root Directory is `web`). Pushes to `main` deploy to production; other branches get previews.
+
+- **Commit author must be a GitHub account.** Vercel blocks a deployment when it cannot map the commit author's email to a GitHub account ("couldn't find a Git account for the commit author"). Either add your commit email under GitHub Settings -> Emails (verified), or commit with the private address `ID+USERNAME@users.noreply.github.com` (`git config user.email ...`).
+- **Collaborators on a Hobby plan.** Vercel Hobby deploys private personal repos from the owner's pushes; teammates' pushes are blocked unless they are members of the Vercel team. Add them under the Vercel team's Members (a paid seat on Pro), or have them open pull requests that the owner merges.
+- CLI deploys from `web/` no longer work once Root Directory is `web`; deploy from the repo root or push to `main`.
